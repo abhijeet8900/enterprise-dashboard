@@ -1,0 +1,12 @@
+.widget {
+  @apply w-full;
+  @apply p-4;
+  @apply relative;
+  @apply flex;
+  @apply flex-col;
+  @apply row-auto;
+  @apply bg-white;
+  @apply rounded;
+  @apply shadow-lg;
+  @apply border;
+}
