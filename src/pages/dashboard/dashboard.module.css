@@ -1,0 +1,13 @@
+.dashboard-wrapper {
+  @apply w-full;
+  @apply max-w-screen-2xl;
+  @apply mx-auto;
+  @apply px-4;
+}
+.widgets-container {
+  /* Grid Setup for Dashboard */
+  @apply w-full;
+  @apply grid;
+  @apply grid-cols-12;
+  @apply gap-6;
+}
