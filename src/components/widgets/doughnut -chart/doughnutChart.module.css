@@ -1,0 +1,5 @@
+.doughnut-chart-wrapper {
+  @apply relative;
+  @apply h-full;
+  @apply w-full;
+}
