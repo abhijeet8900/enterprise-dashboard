@@ -34,14 +34,6 @@ function HorizontalBarChart({ className, title, data }) {
     interaction: {
       intersect: false,
     },
-    scales: {
-      x: {
-        stacked: true,
-      },
-      y: {
-        stacked: true,
-      },
-    },
     grouped: true,
   };
 

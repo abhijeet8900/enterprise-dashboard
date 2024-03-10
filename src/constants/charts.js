@@ -7,4 +7,18 @@ export const DEFAULT_CHART_OPTIONS = {
       position: "bottom",
     },
   },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+        drawOnChartArea: false,
+      },
+    },
+    y: {
+      grid: {
+        display: false,
+        drawOnChartArea: false,
+      },
+    },
+  },
 };
