@@ -15,6 +15,7 @@ import {
 import styles from "./lineChart.module.css";
 import cx from "classnames";
 import Widget from "../../common/widget";
+import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -27,19 +28,9 @@ ChartJS.register(
   Colors
 );
 
-export const DEFAULT_BARCHART_OPTIONS = {
-  responsive: true,
-  maintainAspectRatio: false, // Set false for responsiveness
-  plugins: {
-    legend: {
-      position: "bottom",
-    },
-  },
-};
-
 function LineChart({ className, data, title }) {
   let options = {
-    ...DEFAULT_BARCHART_OPTIONS,
+    ...DEFAULT_CHART_OPTIONS,
   };
 
   return (

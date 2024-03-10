@@ -14,6 +14,7 @@ import {
 import styles from "./horizontalBarChart.module.css";
 import cx from "classnames";
 import Widget from "../../common/widget";
+import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -25,33 +26,23 @@ ChartJS.register(
   Colors
 );
 
-export const DEFAULT_HORIZONTAL_BARCHART_OPTIONS = {
-  indexAxis: "y",
-  type: "bar",
-  interaction: {
-    intersect: false,
-  },
-  scales: {
-    x: {
-      stacked: true,
-    },
-    y: {
-      stacked: true,
-    },
-  },
-  responsive: true,
-  grouped: true,
-  maintainAspectRatio: false, // Set false for responsiveness
-  plugins: {
-    legend: {
-      position: "bottom",
-    },
-  },
-};
-
 function HorizontalBarChart({ className, title, data }) {
   let options = {
-    ...DEFAULT_HORIZONTAL_BARCHART_OPTIONS,
+    ...DEFAULT_CHART_OPTIONS,
+    indexAxis: "y",
+    type: "bar",
+    interaction: {
+      intersect: false,
+    },
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+    grouped: true,
   };
 
   return (

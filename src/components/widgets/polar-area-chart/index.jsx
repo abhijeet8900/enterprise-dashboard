@@ -12,22 +12,13 @@ import {
 import styles from "./polarAreaChart.module.css";
 import cx from "classnames";
 import Widget from "../../common/widget";
+import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 
-export const DEFAULT_POLAR_AREA_CHART_OPTIONS = {
-  responsive: true,
-  maintainAspectRatio: false, // Set false for responsiveness
-  plugins: {
-    legend: {
-      position: "bottom",
-    },
-  },
-};
-
 function PolarAreaChart({ className, data, title }) {
   let options = {
-    ...DEFAULT_POLAR_AREA_CHART_OPTIONS,
+    ...DEFAULT_CHART_OPTIONS,
   };
 
   return (

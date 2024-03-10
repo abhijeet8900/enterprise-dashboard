@@ -12,22 +12,13 @@ import styles from "./doughnutChart.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import Widget from "../../common/widget";
+import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(Colors, DoughnutController, ArcElement, TimeScale, Tooltip);
 
-export const DEFAULT_DOUGHNUTCHART_OPTIONS = {
-  responsive: true,
-  maintainAspectRatio: false, // Set false for responsiveness
-  plugins: {
-    legend: {
-      position: "bottom",
-    },
-  },
-};
-
 function DoughnutChart({ className, data, title }) {
   let options = {
-    ...DEFAULT_DOUGHNUTCHART_OPTIONS,
+    ...DEFAULT_CHART_OPTIONS,
   };
 
   return (

@@ -9,11 +9,12 @@ import {
   Title,
   Tooltip,
   Legend,
-  Colors
+  Colors,
 } from "chart.js";
 import styles from "./barChart.module.css";
 import cx from "classnames";
 import Widget from "../../common/widget";
+import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -25,19 +26,9 @@ ChartJS.register(
   Colors
 );
 
-export const DEFAULT_BARCHART_OPTIONS = {
-  responsive: true,
-  maintainAspectRatio: false, // Set false for responsiveness
-  plugins: {
-    legend: {
-      position: "bottom",
-    },
-  },
-};
-
 function BarChart({ className, title, data }) {
   let options = {
-    ...DEFAULT_BARCHART_OPTIONS,
+    ...DEFAULT_CHART_OPTIONS,
   };
 
   return (
