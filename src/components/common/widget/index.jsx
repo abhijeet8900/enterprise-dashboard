@@ -3,11 +3,17 @@ import styles from "./widget.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 
-function Widget({ children, className }) {
-  return <div className={cx(styles["widget"], className)}>{children}</div>;
+function Widget({ children, className, title = "" }) {
+  return (
+    <div className={cx(styles["widget"], className)}>
+      <h1>{title}</h1>
+      <div>{children}</div>
+    </div>
+  );
 }
 
 Widget.propTypes = {
+  title: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
