@@ -1,6 +1,8 @@
 #root {
   @apply w-screen;
   @apply h-screen;
+  @apply text-black;
+  @apply font-sans;
 }
 
 .app-container {
