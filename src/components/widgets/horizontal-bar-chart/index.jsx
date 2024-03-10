@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Colors,
 } from "chart.js";
 import styles from "./horizontalBarChart.module.css";
 import cx from "classnames";
@@ -20,7 +21,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Colors
 );
 
 export const DEFAULT_HORIZONTAL_BARCHART_OPTIONS = {
@@ -34,8 +36,8 @@ export const DEFAULT_HORIZONTAL_BARCHART_OPTIONS = {
       stacked: true,
     },
     y: {
-      stacked: true
-    }
+      stacked: true,
+    },
   },
   responsive: true,
   grouped: true,
@@ -45,7 +47,6 @@ export const DEFAULT_HORIZONTAL_BARCHART_OPTIONS = {
       position: "bottom",
     },
   },
-  
 };
 
 function HorizontalBarChart({ className, title, data }) {

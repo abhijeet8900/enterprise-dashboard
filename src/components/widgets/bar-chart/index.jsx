@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Colors
 } from "chart.js";
 import styles from "./barChart.module.css";
 import cx from "classnames";
@@ -20,7 +21,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Colors
 );
 
 export const DEFAULT_BARCHART_OPTIONS = {
@@ -37,12 +39,6 @@ function BarChart({ className, title, data }) {
   let options = {
     ...DEFAULT_BARCHART_OPTIONS,
   };
-  if (title) {
-    options.plugins.title = {
-      display: true,
-      text: title ?? "",
-    };
-  }
 
   return (
     <Widget className={cx(className)} title={title}>

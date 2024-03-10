@@ -2,18 +2,18 @@ import React from "react";
 import { PolarArea } from "react-chartjs-2";
 import PropTypes from "prop-types";
 import {
-    Chart as ChartJS,
-    RadialLinearScale,
-    ArcElement,
-    Tooltip,
-    Legend,
+  Chart as ChartJS,
+  RadialLinearScale,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Colors,
 } from "chart.js";
 import styles from "./polarAreaChart.module.css";
 import cx from "classnames";
 import Widget from "../../common/widget";
 
-ChartJS.register(
-    RadialLinearScale, ArcElement, Tooltip, Legend)
+ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 
 export const DEFAULT_POLAR_AREA_CHART_OPTIONS = {
   responsive: true,

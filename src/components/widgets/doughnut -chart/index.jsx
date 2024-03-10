@@ -6,13 +6,14 @@ import {
   ArcElement,
   TimeScale,
   Tooltip,
+  Colors,
 } from "chart.js";
 import styles from "./doughnutChart.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import Widget from "../../common/widget";
 
-ChartJS.register(DoughnutController, ArcElement, TimeScale, Tooltip);
+ChartJS.register(Colors, DoughnutController, ArcElement, TimeScale, Tooltip);
 
 export const DEFAULT_DOUGHNUTCHART_OPTIONS = {
   responsive: true,
