@@ -29,6 +29,12 @@ ChartJS.register(
 function BarChart({ className, title, data }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
+    plugins: {
+      ...DEFAULT_CHART_OPTIONS.plugins,
+      legend: {
+        display: data.datasets.length > 1, // Only show legends if more than 1 dataset
+      },
+    },
   };
 
   return (
