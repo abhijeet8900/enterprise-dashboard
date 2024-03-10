@@ -44,9 +44,8 @@ function BarChart({ className, title, data }) {
     };
   }
 
-
   return (
-    <Widget className={cx(className)}>
+    <Widget className={cx(className)} title={title}>
       <Bar
         className={cx(styles["bar-chart-wrapper"])}
         options={options}

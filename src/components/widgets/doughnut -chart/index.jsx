@@ -28,15 +28,9 @@ function DoughnutChart({ className, data, title }) {
   let options = {
     ...DEFAULT_DOUGHNUTCHART_OPTIONS,
   };
-  if (title) {
-    options.plugins.title = {
-      display: true,
-      text: title ?? "",
-    };
-  }
 
   return (
-    <Widget className={cx(className)}>
+    <Widget className={cx(className)} title={title}>
       <Doughnut
         className={cx(styles["doughnut-chart-wrapper"])}
         data={data}
