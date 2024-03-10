@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 function Widget({ children, className, title = "" }) {
   return (
     <div className={cx(styles["widget"], className)}>
-      <h1>{title}</h1>
-      <div>{children}</div>
+      <h1 className={cx(styles["header"])}>{title}</h1>
+      <div className={cx(styles["container"])}>{children}</div>
     </div>
   );
 }

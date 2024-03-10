@@ -1,12 +1,24 @@
 .widget {
-  @apply w-full;
-  @apply p-4;
-  @apply relative;
   @apply flex;
   @apply flex-col;
-  @apply row-auto;
-  @apply bg-white;
   @apply rounded;
   @apply shadow-lg;
   @apply border;
+  @apply bg-white;
+  
+}
+
+.header { 
+  @apply text-base;
+  @apply font-bold;
+  @apply w-full;
+  @apply p-2;
+  @apply px-4;
+}
+
+.container { 
+@apply border-t;
+@apply p-4;
+@apply h-full;
+@apply w-full;
 }
