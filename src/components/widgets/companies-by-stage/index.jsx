@@ -5,6 +5,7 @@ import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
 import Widget from "../../common/widget";
+import { COLORS } from "../../../constants/theme";
 
 function CompaniesByStages({ dataset, loading = false }) {
   const { xAxis, yAxis } = transformDataset(dataset);
@@ -15,11 +16,7 @@ function CompaniesByStages({ dataset, loading = false }) {
       {
         label: "No of Companies",
         data: yAxis,
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
+        backgroundColor: COLORS,
         hoverOffset: 12,
         hoverBorderRadius: 1,
         hoverBorderWidth: 1,

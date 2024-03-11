@@ -5,6 +5,7 @@ import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
 import Widget from "../../common/widget";
+import { COLORS } from "../../../constants/theme";
 function CompaniesByFundingAndValuation({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
 
@@ -18,6 +19,7 @@ function CompaniesByFundingAndValuation({ dataset, loading = false }) {
         hoverOffset: 4,
         barPercentage: 0.66,
         categoryPercentage: 0.66,
+        backgroundColor: COLORS[0]
       },
       {
         label: "Valuation ( $B )",
@@ -25,6 +27,7 @@ function CompaniesByFundingAndValuation({ dataset, loading = false }) {
         hoverOffset: 4,
         barPercentage: 0.66,
         categoryPercentage: 0.66,
+        backgroundColor: COLORS[1]
       },
     ],
   };

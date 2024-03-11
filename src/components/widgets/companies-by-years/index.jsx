@@ -5,6 +5,7 @@ import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
 import Widget from "../../common/widget";
+import { COLORS } from "../../../constants/theme";
 function CompaniesByFoundedYear({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
 
@@ -14,6 +15,7 @@ function CompaniesByFoundedYear({ dataset, loading = false }) {
       {
         data: axisData.yAxis,
         hoverOffset: 4,
+        borderColor: COLORS[0],
       },
     ],
   };

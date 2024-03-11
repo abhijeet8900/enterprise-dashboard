@@ -5,6 +5,7 @@ import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
 import Widget from "../../common/widget";
+import { COLORS } from "../../../constants/theme";
 
 function CompaniesByCountries({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
@@ -15,6 +16,7 @@ function CompaniesByCountries({ dataset, loading = false }) {
       {
         type: "bar",
         data: axisData.yAxis,
+        backgroundColor: COLORS[0]
       },
     ],
   };
