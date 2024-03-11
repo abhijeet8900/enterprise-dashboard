@@ -21,4 +21,9 @@ export const DEFAULT_CHART_OPTIONS = {
       },
     },
   },
+  animation: {
+    easing : "easeInOutQuad",
+    delay : 200,
+    duration : 800
+  },
 };
