@@ -14,7 +14,6 @@ import {
 } from "chart.js";
 import styles from "./lineChart.module.css";
 import cx from "classnames";
-import Widget from "../../common/widget";
 import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(
@@ -28,7 +27,7 @@ ChartJS.register(
   Colors
 );
 
-function LineChart({ className, data, title, customOptions }) {
+function LineChart({ className, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     plugins: {
@@ -41,18 +40,15 @@ function LineChart({ className, data, title, customOptions }) {
   };
 
   return (
-    <Widget className={cx(className)} title={title}>
-      <Line
-        className={cx(styles["line-chart-wrapper"])}
-        options={options}
-        data={data}
-      />
-    </Widget>
+    <Line
+      className={cx(styles["line-chart-wrapper"], className)}
+      options={options}
+      data={data}
+    />
   );
 }
 
 LineChart.propTypes = {
-  title: PropTypes.string.isRequired,
   className: PropTypes.string,
   data: PropTypes.shape({
     datasets: PropTypes.arrayOf(PropTypes.object),

@@ -4,7 +4,8 @@ import styles from "./companiesFundingAndValuation.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
-function CompaniesByFundingAndValuation({ dataset }) {
+import Widget from "../../common/widget";
+function CompaniesByFundingAndValuation({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
 
   const data = {
@@ -28,34 +29,39 @@ function CompaniesByFundingAndValuation({ dataset }) {
     ],
   };
   return (
-    <HorizontalBarChart
+    <Widget
       className={cx(styles["wrapper"])}
       title="Funding vs Valuation"
-      data={data}
-      customOptions={{
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Billions",
+      loading={loading}
+    >
+      <HorizontalBarChart
+        data={data}
+        customOptions={{
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Billions",
+              },
+              grid: { display: false },
             },
-            grid: { display: false },
-          },
-          y: {
-            title: {
-              display: true,
-              text: "Companies",
+            y: {
+              title: {
+                display: true,
+                text: "Companies",
+              },
+              grid: { display: false },
             },
-            grid: { display: false },
           },
-        },
-      }}
-    />
+        }}
+      />
+    </Widget>
   );
 }
 
 CompaniesByFundingAndValuation.propTypes = {
   dataset: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default CompaniesByFundingAndValuation;

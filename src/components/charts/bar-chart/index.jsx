@@ -13,7 +13,6 @@ import {
 } from "chart.js";
 import styles from "./barChart.module.css";
 import cx from "classnames";
-import Widget from "../../common/widget";
 import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(
@@ -26,7 +25,7 @@ ChartJS.register(
   Colors
 );
 
-function BarChart({ className, title, data, customOptions }) {
+function BarChart({ className, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     plugins: {
@@ -39,18 +38,15 @@ function BarChart({ className, title, data, customOptions }) {
   };
 
   return (
-    <Widget className={cx(className)} title={title}>
-      <Bar
-        className={cx(styles["bar-chart-wrapper"])}
-        options={options}
-        data={data}
-      />
-    </Widget>
+    <Bar
+      className={cx(styles["bar-chart-wrapper"])}
+      options={options}
+      data={data}
+    />
   );
 }
 
 BarChart.propTypes = {
-  title: PropTypes.string.isRequired,
   className: PropTypes.string,
   data: PropTypes.shape({
     datasets: PropTypes.arrayOf(PropTypes.object),

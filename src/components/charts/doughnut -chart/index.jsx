@@ -11,12 +11,11 @@ import {
 import styles from "./doughnutChart.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import Widget from "../../common/widget";
 import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(Colors, DoughnutController, ArcElement, TimeScale, Tooltip);
 
-function DoughnutChart({ className, data, title, customOptions }) {
+function DoughnutChart({ className, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     scales: {
@@ -31,18 +30,15 @@ function DoughnutChart({ className, data, title, customOptions }) {
   };
 
   return (
-    <Widget className={cx(className)} title={title}>
-      <Doughnut
-        className={cx(styles["doughnut-chart-wrapper"])}
-        data={data}
-        options={options}
-      />
-    </Widget>
+    <Doughnut
+      className={cx(styles["doughnut-chart-wrapper"], className)}
+      data={data}
+      options={options}
+    />
   );
 }
 
 DoughnutChart.propTypes = {
-  title: PropTypes.string.isRequired,
   className: PropTypes.string,
   data: PropTypes.shape({
     datasets: PropTypes.arrayOf(PropTypes.object),

@@ -4,8 +4,9 @@ import styles from "./companiesByCountry.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
+import Widget from "../../common/widget";
 
-function CompaniesByCountries({ dataset }) {
+function CompaniesByCountries({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
 
   const data = {
@@ -19,34 +20,39 @@ function CompaniesByCountries({ dataset }) {
   };
 
   return (
-    <BarChart
+    <Widget
       className={cx(styles["wrapper"])}
-      title="Unicorn Count by Country"
-      data={data}
-      customOptions={{
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Countries",
+      title={"Unicorn Count by Country"}
+      loading={loading}
+    >
+      <BarChart
+        data={data}
+        customOptions={{
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Countries",
+              },
+              grid: { display: false },
             },
-            grid: { display: false },
-          },
-          y: {
-            title: {
-              display: true,
-              text: "No of companies",
+            y: {
+              title: {
+                display: true,
+                text: "No of companies",
+              },
+              grid: { display: false },
             },
-            grid: { display: false },
           },
-        },
-      }}
-    />
+        }}
+      />
+    </Widget>
   );
 }
 
 CompaniesByCountries.propTypes = {
   dataset: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default CompaniesByCountries;

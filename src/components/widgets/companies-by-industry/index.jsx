@@ -4,7 +4,8 @@ import styles from "./companiesByIndustry.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
-function CompaniesByIndustry({ dataset }) {
+import Widget from "../../common/widget";
+function CompaniesByIndustry({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
 
   const data = {
@@ -24,33 +25,38 @@ function CompaniesByIndustry({ dataset }) {
   };
 
   return (
-    <PolarAreaChart
+    <Widget
       className={cx(styles["wrapper"])}
-      title="Industries for Unicorn Companies"
-      data={data}
-      customOptions={{
-        plugins: {
-          legend: {
-            position: "right",
+      title={"Industries for Unicorn Companies"}
+      loading={loading}
+    >
+      <PolarAreaChart
+        data={data}
+        customOptions={{
+          plugins: {
+            legend: {
+              position: "right",
+            },
           },
-        },
-        scales: {
-          x: {
-            display: false,
-            grid: { display: false },
+          scales: {
+            x: {
+              display: false,
+              grid: { display: false },
+            },
+            y: {
+              display: false,
+              grid: { display: false },
+            },
           },
-          y: {
-            display: false,
-            grid: { display: false },
-          },
-        },
-      }}
-    />
+        }}
+      />
+    </Widget>
   );
 }
 
 CompaniesByIndustry.propTypes = {
   dataset: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default CompaniesByIndustry;

@@ -11,12 +11,11 @@ import {
 } from "chart.js";
 import styles from "./polarAreaChart.module.css";
 import cx from "classnames";
-import Widget from "../../common/widget";
 import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 
-function PolarAreaChart({ className, data, title, customOptions }) {
+function PolarAreaChart({ className, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     scales: {
@@ -27,22 +26,19 @@ function PolarAreaChart({ className, data, title, customOptions }) {
         display: false,
       },
     },
-    ...customOptions
+    ...customOptions,
   };
 
   return (
-    <Widget className={cx(className)} title={title}>
-      <PolarArea
-        className={cx(styles["polar-area-chart-wrapper"])}
-        options={options}
-        data={data}
-      />
-    </Widget>
+    <PolarArea
+      className={cx(styles["polar-area-chart-wrapper"], className)}
+      options={options}
+      data={data}
+    />
   );
 }
 
 PolarAreaChart.propTypes = {
-  title: PropTypes.string.isRequired,
   className: PropTypes.string,
   data: PropTypes.shape({
     datasets: PropTypes.arrayOf(PropTypes.object),

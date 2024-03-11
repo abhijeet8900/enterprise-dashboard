@@ -13,7 +13,6 @@ import {
 } from "chart.js";
 import styles from "./horizontalBarChart.module.css";
 import cx from "classnames";
-import Widget from "../../common/widget";
 import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(
@@ -26,7 +25,7 @@ ChartJS.register(
   Colors
 );
 
-function HorizontalBarChart({ className, title, data, customOptions }) {
+function HorizontalBarChart({ className, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     indexAxis: "y",
@@ -39,18 +38,15 @@ function HorizontalBarChart({ className, title, data, customOptions }) {
   };
 
   return (
-    <Widget className={cx(className)} title={title}>
-      <Bar
-        className={cx(styles["horizontal-bar-chart-wrapper"])}
-        options={options}
-        data={data}
-      />
-    </Widget>
+    <Bar
+      className={cx(styles["horizontal-bar-chart-wrapper"], className)}
+      options={options}
+      data={data}
+    />
   );
 }
 
 HorizontalBarChart.propTypes = {
-  title: PropTypes.string.isRequired,
   className: PropTypes.string,
   data: PropTypes.shape({
     datasets: PropTypes.arrayOf(PropTypes.object),

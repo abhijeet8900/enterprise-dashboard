@@ -4,7 +4,8 @@ import styles from "./companiesByYears.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
-function CompaniesByFoundedYear({ dataset }) {
+import Widget from "../../common/widget";
+function CompaniesByFoundedYear({ dataset, loading = false }) {
   const axisData = transformDataset(dataset);
 
   const data = {
@@ -18,34 +19,39 @@ function CompaniesByFoundedYear({ dataset }) {
   };
 
   return (
-    <LineChart
+    <Widget
       className={cx(styles["wrapper"])}
-      title="Distribution of Unicorn Companies Founded by Year"
-      data={data}
-      customOptions={{
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Years",
+      title={"Distribution of Unicorn Companies Founded by Year"}
+      loading={loading}
+    >
+      <LineChart
+        data={data}
+        customOptions={{
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Years",
+              },
+              grid: { display: false },
             },
-            grid: { display: false },
-          },
-          y: {
-            title: {
-              display: true,
-              text: "No of Companies",
+            y: {
+              title: {
+                display: true,
+                text: "No of Companies",
+              },
+              grid: { display: false },
             },
-            grid: { display: false },
           },
-        },
-      }}
-    />
+        }}
+      />
+    </Widget>
   );
 }
 
 CompaniesByFoundedYear.propTypes = {
   dataset: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default CompaniesByFoundedYear;

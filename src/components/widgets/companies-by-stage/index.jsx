@@ -4,8 +4,9 @@ import styles from "./companiesByStage.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { transformDataset } from "./helper";
+import Widget from "../../common/widget";
 
-function CompaniesByStages({ dataset }) {
+function CompaniesByStages({ dataset, loading = false }) {
   const { xAxis, yAxis } = transformDataset(dataset);
 
   const data = {
@@ -27,16 +28,19 @@ function CompaniesByStages({ dataset }) {
   };
 
   return (
-    <DoughnutChart
+    <Widget
       className={cx(styles["wrapper"])}
       title="Financial Stages of Unicorn Companies"
-      data={data}
-    />
+      loading={loading}
+    >
+      <DoughnutChart data={data} />
+    </Widget>
   );
 }
 
 CompaniesByStages.propTypes = {
   dataset: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default CompaniesByStages;
