@@ -1,25 +1,26 @@
 .widget {
   @apply flex;
   @apply flex-col;
-  @apply rounded;
+  @apply rounded-sm;
   @apply shadow-lg;
-  @apply border-slate-100;
+  @apply border;
+  @apply border-slate-200;
   @apply bg-white;
-  
 }
 
-.header { 
+.header {
   @apply text-lg;
   @apply font-bold;
   @apply w-full;
   @apply p-4;
   @apply px-4;
   @apply border-b;
-  @apply border-slate-100;
+  @apply border-slate-200;
+  @apply pointer-events-none;
 }
 
-.container { 
-@apply p-4;
-@apply h-full;
-@apply w-full;
+.container {
+  @apply p-4;
+  @apply h-full;
+  @apply w-full;
 }

@@ -1,8 +1,11 @@
 .dashboard-wrapper {
   @apply w-full;
   @apply max-w-screen-2xl;
+  @apply mt-4;
+  @apply px-2;
   @apply mx-auto;
-  @apply mt-10;
+  @apply md:mt-10;
+  @apply md:px-0;
 }
 .widgets-container {
   /* Grid Setup for Dashboard */

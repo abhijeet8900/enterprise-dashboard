@@ -7,5 +7,7 @@
 
 .app-container {
   @apply overflow-hidden;
-  @apply pb-16;
+  @apply pb-10;
+  @apply md:pb-16;
+
 }
