@@ -3,8 +3,26 @@ import PolarAreaChart from "../../charts/polar-area-chart";
 import styles from "./companiesByIndustry.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import { transformDataset } from "./helper";
+function CompaniesByIndustry({ dataset }) {
+  const axisData = transformDataset(dataset);
 
-function CompaniesByIndustry({ data }) {
+  const data = {
+    labels: axisData.xAxis,
+    datasets: [
+      {
+        label: "No of Companies",
+        data: axisData.yAxis,
+        borderWidth: 1,
+        backgroundColor: [
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
+        ],
+      },
+    ],
+  };
+
   return (
     <PolarAreaChart
       className={cx(styles["wrapper"])}
@@ -32,7 +50,7 @@ function CompaniesByIndustry({ data }) {
 }
 
 CompaniesByIndustry.propTypes = {
-  data: PropTypes.object,
+  dataset: PropTypes.array,
 };
 
 export default CompaniesByIndustry;

@@ -3,8 +3,20 @@ import LineChart from "../../charts/line-chart";
 import styles from "./companiesByYears.module.css";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import { transformDataset } from "./helper";
+function CompaniesByFoundedYear({ dataset }) {
+  const axisData = transformDataset(dataset);
 
-function CompaniesByFoundedYear({ data }) {
+  const data = {
+    labels: axisData.xAxis,
+    datasets: [
+      {
+        data: axisData.yAxis,
+        hoverOffset: 4,
+      },
+    ],
+  };
+
   return (
     <LineChart
       className={cx(styles["wrapper"])}
@@ -33,7 +45,7 @@ function CompaniesByFoundedYear({ data }) {
 }
 
 CompaniesByFoundedYear.propTypes = {
-  data: PropTypes.object,
+  dataset: PropTypes.array,
 };
 
 export default CompaniesByFoundedYear;
