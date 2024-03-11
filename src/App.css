@@ -6,6 +6,6 @@
 }
 
 .app-container {
-  @apply flex;
   @apply overflow-hidden;
+  @apply pb-16;
 }

@@ -2,7 +2,7 @@
   @apply w-full;
   @apply max-w-screen-2xl;
   @apply mx-auto;
-  @apply px-4;
+  @apply mt-10;
 }
 .widgets-container {
   /* Grid Setup for Dashboard */

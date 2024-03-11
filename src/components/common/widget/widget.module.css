@@ -3,21 +3,22 @@
   @apply flex-col;
   @apply rounded;
   @apply shadow-lg;
-  @apply border;
+  @apply border-slate-100;
   @apply bg-white;
   
 }
 
 .header { 
-  @apply text-base;
+  @apply text-lg;
   @apply font-bold;
   @apply w-full;
-  @apply p-2;
+  @apply p-4;
   @apply px-4;
+  @apply border-b;
+  @apply border-slate-100;
 }
 
 .container { 
-@apply border-t;
 @apply p-4;
 @apply h-full;
 @apply w-full;
