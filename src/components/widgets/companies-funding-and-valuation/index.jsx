@@ -31,7 +31,7 @@ function CompaniesByFundingAndValuation({ dataset, loading = false }) {
   return (
     <Widget
       className={cx(styles["wrapper"])}
-      title="Funding vs Valuation"
+      title="Funding vs Valuation for Top 10 Companies"
       loading={loading}
     >
       <HorizontalBarChart
