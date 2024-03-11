@@ -1,0 +1,4 @@
+.wrapper {
+  /* Define gird space for chart */
+  @apply col-span-full;
+}
