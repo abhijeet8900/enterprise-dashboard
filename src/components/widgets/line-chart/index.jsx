@@ -28,15 +28,16 @@ ChartJS.register(
   Colors
 );
 
-function LineChart({ className, data, title }) {
+function LineChart({ className, data, title, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     plugins: {
       ...DEFAULT_CHART_OPTIONS.plugins,
       legend: {
-        display: data.datasets.length > 1,  // Only show legends if more than 1 dataset
+        display: data.datasets.length > 1, // Only show legends if more than 1 dataset
       },
     },
+    ...customOptions,
   };
 
   return (
@@ -57,6 +58,9 @@ LineChart.propTypes = {
     datasets: PropTypes.arrayOf(PropTypes.object),
     label: PropTypes.array,
   }).isRequired,
+  customOptions: PropTypes.shape({
+    scales: PropTypes.object,
+  }),
 };
 
 export default LineChart;

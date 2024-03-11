@@ -26,7 +26,7 @@ ChartJS.register(
   Colors
 );
 
-function HorizontalBarChart({ className, title, data }) {
+function HorizontalBarChart({ className, title, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     indexAxis: "y",
@@ -35,6 +35,7 @@ function HorizontalBarChart({ className, title, data }) {
       intersect: false,
     },
     grouped: true,
+    ...customOptions,
   };
 
   return (
@@ -55,6 +56,9 @@ HorizontalBarChart.propTypes = {
     datasets: PropTypes.arrayOf(PropTypes.object),
     label: PropTypes.array,
   }).isRequired,
+  customOptions: PropTypes.shape({
+    scales: PropTypes.object,
+  }),
 };
 
 export default HorizontalBarChart;

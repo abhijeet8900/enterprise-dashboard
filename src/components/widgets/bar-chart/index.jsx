@@ -26,7 +26,7 @@ ChartJS.register(
   Colors
 );
 
-function BarChart({ className, title, data }) {
+function BarChart({ className, title, data, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     plugins: {
@@ -35,6 +35,7 @@ function BarChart({ className, title, data }) {
         display: data.datasets.length > 1, // Only show legends if more than 1 dataset
       },
     },
+    ...customOptions,
   };
 
   return (
@@ -55,6 +56,9 @@ BarChart.propTypes = {
     datasets: PropTypes.arrayOf(PropTypes.object),
     label: PropTypes.array,
   }).isRequired,
+  customOptions: PropTypes.shape({
+    scales: PropTypes.object,
+  }),
 };
 
 export default BarChart;

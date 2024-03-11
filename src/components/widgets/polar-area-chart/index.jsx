@@ -16,7 +16,7 @@ import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 
-function PolarAreaChart({ className, data, title }) {
+function PolarAreaChart({ className, data, title, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
     scales: {
@@ -27,6 +27,7 @@ function PolarAreaChart({ className, data, title }) {
         display: false,
       },
     },
+    ...customOptions
   };
 
   return (
@@ -47,6 +48,9 @@ PolarAreaChart.propTypes = {
     datasets: PropTypes.arrayOf(PropTypes.object),
     label: PropTypes.array,
   }).isRequired,
+  customOptions: PropTypes.shape({
+    scales: PropTypes.object,
+  }),
 };
 
 export default PolarAreaChart;

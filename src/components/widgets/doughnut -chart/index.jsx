@@ -16,17 +16,18 @@ import { DEFAULT_CHART_OPTIONS } from "../../../constants/charts";
 
 ChartJS.register(Colors, DoughnutController, ArcElement, TimeScale, Tooltip);
 
-function DoughnutChart({ className, data, title }) {
+function DoughnutChart({ className, data, title, customOptions }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
-    scales : {
-      x : {
-        display: false 
+    scales: {
+      x: {
+        display: false,
       },
-      y : {
-        display: false 
-      }
-    }
+      y: {
+        display: false,
+      },
+    },
+    ...customOptions,
   };
 
   return (
@@ -47,5 +48,8 @@ DoughnutChart.propTypes = {
     datasets: PropTypes.arrayOf(PropTypes.object),
     label: PropTypes.array,
   }).isRequired,
+  customOptions: PropTypes.shape({
+    scales: PropTypes.object,
+  }),
 };
 export default DoughnutChart;
