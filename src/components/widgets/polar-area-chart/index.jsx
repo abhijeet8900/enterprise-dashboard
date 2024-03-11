@@ -19,6 +19,14 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend, Colors);
 function PolarAreaChart({ className, data, title }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
+    scales: {
+      x: {
+        display: false,
+      },
+      y: {
+        display: false,
+      },
+    },
   };
 
   return (

@@ -19,6 +19,14 @@ ChartJS.register(Colors, DoughnutController, ArcElement, TimeScale, Tooltip);
 function DoughnutChart({ className, data, title }) {
   let options = {
     ...DEFAULT_CHART_OPTIONS,
+    scales : {
+      x : {
+        display: false 
+      },
+      y : {
+        display: false 
+      }
+    }
   };
 
   return (
